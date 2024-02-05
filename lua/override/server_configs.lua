@@ -1,0 +1,36 @@
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+
+return {
+	-- ["rust_analyzer"] = {
+	-- 	settings = {
+	-- 		["rust-analyzer"] = {
+	-- 			diagnostics = { enable = true },
+	-- 			checkOnSave = { enable = true },
+	-- 		},
+	-- 	},
+	-- },
+	-- ["cssls"] = {
+	-- 	capabilities = { textDocument = { completion = { completionItem = { snippetSupport = true } } } },
+	-- },
+	-- ["clangd"] = {
+	-- 	capabilities = { offsetEncoding = { "utf-16" } },
+	-- },
+	-- ["lua_ls"] = {
+	-- 	settings = {
+	-- 		Lua = {
+	-- 			diagnostics = {
+	-- 				-- Get the language server to recognize the 'vim', 'use' global
+	-- 				globals = { "vim", "use", "require" },
+	-- 			},
+	-- 			workspace = {
+	-- 				-- Make the server aware of Neovim runtime files
+	-- 				library = vim.api.nvim_get_runtime_file("", true),
+	-- 				--  don't ask about working environment on every startup
+	-- 				checkThirdParty = false,
+	-- 			},
+	-- 			-- Do not send telemetry data containing a randomized but unique identifier
+	-- 			telemetry = { enable = false },
+	-- 		},
+	-- 	},
+	-- },
+}
