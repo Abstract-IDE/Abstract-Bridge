@@ -1,6 +1,4 @@
-if true then
-	return {}
-end
+return {}
 
 -- return {
 -- 	"Abstract-IDE/abstract-autocmds",
