@@ -1,5 +1,5 @@
 -- ─────────────────────────────────────────────────
--- WARNING: this snippet must on top of init.lua
+-- WARNING: This snippet must be placed at the top of init.lua.
 -- ─────────────────────────────────────────────────
 if vim.g.ABSTRACT_LOADED == nil then
 	local abstract_path = "/home/shaeins7/codeDNA/dev/Projects/neovim/Abstract"
@@ -14,5 +14,8 @@ if vim.g.ABSTRACT_LOADED then
 	return
 end
 -- ─────────────────────────────────────────────────
+
+
+-- everything else goes below
 
 -- vim.g.mapleader = "|"
