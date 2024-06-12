@@ -14,7 +14,24 @@ Dart/Flutter LSP is maintained by https://github.com/akinsho/flutter-tools.nvim
 local M = {}
 
 M.setup = function(lspconfig)
-	return {
+	local server_config = {}
+
+	server_config.toolchain_server = {
+		-- ["sourcekit"] = {
+		-- 	executable = "swift",
+		-- 	config = {
+		-- 		capabilities = {
+		-- 			workspace = {
+		-- 				didChangeWatchedFiles = {
+		-- 					dynamicRegistration = true,
+		-- 				},
+		-- 			},
+		-- 		},
+		-- 	},
+		-- },
+	}
+
+	server_config.installed_server = {
 		-- ["rust_analyzer"] = function()
 		-- 	lspconfig.rust_analyzer.setup({
 		-- 		settings = {
@@ -53,6 +70,8 @@ M.setup = function(lspconfig)
 		-- 	})
 		-- end,
 	}
+
+	return server_config
 end
 
 return M
