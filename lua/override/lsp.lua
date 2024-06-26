@@ -13,7 +13,7 @@ Dart/Flutter LSP is maintained by https://github.com/akinsho/flutter-tools.nvim
 
 local M = {}
 
-M.setup = function(lspconfig)
+M.setup = function(set_lspconfig)
 	local server_config = {}
 
 	server_config.toolchain_server = {
@@ -32,39 +32,22 @@ M.setup = function(lspconfig)
 	}
 
 	server_config.installed_server = {
-		-- ["rust_analyzer"] = function()
-		-- 	lspconfig.rust_analyzer.setup({
-		-- 		settings = {
-		-- 			["rust-analyzer"] = {
-		-- 				diagnostics = { enable = true },
-		-- 				checkOnSave = { enable = true },
-		-- 			},
-		-- 		},
-		-- 	})
-		-- end,
 
 		-- ["cssls"] = function()
-		-- 	lspconfig.cssls.setup({
+		-- 	set_lspconfig("cssls", {
 		-- 		capabilities = { textDocument = { completion = { completionItem = { snippetSupport = true } } } },
 		-- 	})
 		-- end,
 
-		-- ["lua_ls"] = function()
-		-- 	lspconfig.lua_ls.setup({
+		-- ["pyright"] = function()
+		-- 	set_lspconfig("pyright", {
 		-- 		settings = {
-		-- 			Lua = {
-		-- 				diagnostics = {
-		-- 					-- Get the language server to recognize the 'vim', 'use' global
-		-- 					globals = { "vim", "use", "require" },
+		-- 			python = {
+		-- 				analysis = {
+		-- 					autoSearchPaths = true,
+		-- 					-- diagnosticMode = "workspace", -- options: "workspace" | "openFilesOnly"
+		-- 					useLibraryCodeForTypes = true,
 		-- 				},
-		-- 				workspace = {
-		-- 					-- Make the server aware of Neovim runtime files
-		-- 					library = vim.api.nvim_get_runtime_file("", true),
-		-- 					--  don't ask about working environment on every startup
-		-- 					checkThirdParty = false,
-		-- 				},
-		-- 				-- Do not send telemetry data containing a randomized but unique identifier
-		-- 				telemetry = { enable = false },
 		-- 			},
 		-- 		},
 		-- 	})
