@@ -8,20 +8,6 @@ We are using which-key.nvim for mapping.
 --]]
 
 return {
-	-- {
-	-- 	opts = {
-	-- 		mode = "n",
-	-- 	},
-	-- 	maps = {
-	-- 		["<Leader>f"] = { "<cmd>lua require('telescope.builtin').commands() <CR>", "Commands" },
-	-- 	},
-	-- },
-	-- {
-	-- 	opts = {
-	-- 		mode = "n",
-	-- 	},
-	-- 	maps = {
-	-- 		th = { "<cmd>lua require('telescope.builtin').help_tags() <CR>", "Help tags" },
-	-- 	},
-	-- },
+  -- { "<Leader>f", "<cmd>lua require('telescope.builtin').commands() <CR>",  desc = "Commands" },
+  -- { "th",        "<cmd>lua require('telescope.builtin').help_tags() <CR>", desc = "Help tags" },
 }
