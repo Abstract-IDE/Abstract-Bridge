@@ -9,6 +9,8 @@ This is a special config file. You can change the colorscheme, winbar, and statu
 
 local spec = {
 	"Abstract-IDE/Abstract-cs",
+	branch = "rewrite",
+
 	dependencies = {
 		"Abstract-IDE/abstract-line",
 		{
@@ -24,8 +26,7 @@ local spec = {
 
 spec.config = function()
 	-- color scheme
-	vim.cmd("colorscheme abscs")
-	vim.g.abscs_theme_name = "aqua" -- theme name
+	require("abstract_cs").setup({})
 
 	-- status line
 	require("abstract-line").setup()
