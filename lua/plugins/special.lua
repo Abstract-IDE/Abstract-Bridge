@@ -2,37 +2,42 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ─────────────────────────────────────────────────
 NOTE:
-This is a special config file. You can change the colorscheme, winbar, and statusbar here.
+This is a special config file.
+You can change the colorscheme, winbar, and statusbar here.
 ─────────────────────────────────────────────────
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 --]]
 
 local spec = {
-	"Abstract-IDE/Abstract-cs",
-	branch = "rewrite",
-
-	dependencies = {
-		"Abstract-IDE/abstract-line",
-		{
-			"Abstract-IDE/abstract-winbar",
-			lazy = true,
-			event = { "BufRead" },
-			dependencies = { "SmiteshP/nvim-navic" },
-		},
-	},
+	dependencies = {},
 	lazy = false, -- make sure we load this during startup if it is your main colorscheme
 	priority = 1000, -- make sure to load this before all the other start plugins
 }
 
+-- local your_colorscheme = {
+-- 	"folke/tokyonight.nvim",
+-- 	opts = {},
+-- }
+-- spec = vim.tbl_extend("force", spec, your_colorscheme)
+
+local abstract_cs = require("abstract.plugins.abstract-cs")
+spec = vim.tbl_extend("force", spec, abstract_cs)
+
+local abstract_line = require("abstract.plugins.abstract-line")
+local dropbar = require("abstract.plugins.dropbar")
+
+spec.dependencies = vim.list_extend(spec.dependencies, {
+	abstract_line,
+	dropbar,
+	-- {
+	-- 	"someother/plugin",
+	-- },
+})
+
 spec.config = function()
-	-- color scheme
-	require("abstract_cs").setup({})
-
-	-- status line
-	require("abstract-line").setup()
-
-	-- winbar
-	require("abstract-winbar").setup({})
+	abstract_cs.setup({}) -- Color scheme
+	abstract_line.setup() -- Status line
+	dropbar.setup() -- Winbar
 end
 
 return spec
