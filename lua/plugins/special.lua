@@ -25,10 +25,12 @@ spec = vim.tbl_extend("force", spec, abstract_cs)
 
 local abstract_line = require("abstract.plugins.abstract-line")
 local dropbar = require("abstract.plugins.dropbar")
+-- local abstract_winbar = require("abstract.plugins.abstract-winbar")
 
 spec.dependencies = vim.list_extend(spec.dependencies, {
 	abstract_line,
 	dropbar,
+	-- abstract_winbar,
 	-- {
 	-- 	"someother/plugin",
 	-- },
@@ -38,6 +40,7 @@ spec.config = function()
 	abstract_cs.setup({}) -- Color scheme
 	abstract_line.setup() -- Status line
 	dropbar.setup() -- Winbar
+	-- abstract_winbar.setup({})
 end
 
 return spec
