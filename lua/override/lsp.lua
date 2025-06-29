@@ -13,48 +13,50 @@ Dart/Flutter LSP is maintained by https://github.com/akinsho/flutter-tools.nvim
 
 local M = {}
 
-M.setup = function(set_lspconfig)
-	local server_config = {}
+-- A list of servers to automatically install if they're not already installed.
+--Example: { "rust_analyzer@nightly", "lua_ls" }
+---@type string[]
+M.ensure_installed = {
+	"bashls",
+	"cssls",
+	"eslint",
+	"html",
+	"jsonls",
+	"lua_ls",
+	"basedpyright",
+	"ts_ls",
+}
 
-	server_config.toolchain_server = {
-		-- ["sourcekit"] = {
-		-- 	executable = "swift",
-		-- 	config = {
-		-- 		capabilities = {
-		-- 			workspace = {
-		-- 				didChangeWatchedFiles = {
-		-- 					dynamicRegistration = true,
-		-- 				},
-		-- 			},
-		-- 		},
-		-- 	},
-		-- },
-	}
+-- LSP configs
+---@type table<string,vim.lsp.Config>
+M.configs = {
+	-- ["sourcekit"] = {
+	-- 	capabilities = {
+	-- 		workspace = {
+	-- 			didChangeWatchedFiles = {
+	-- 				dynamicRegistration = true,
+	-- 			},
+	-- 		},
+	-- 	},
+	-- },
 
-	server_config.installed_server = {
+	-- ["cssls"] = {
+	-- 	capabilities = {
+	-- 		textDocument = { completion = { completionItem = { snippetSupport = true } } },
+	-- 	},
+	-- },
 
-		-- ["cssls"] = function()
-		-- 	set_lspconfig("cssls", {
-		-- 		capabilities = { textDocument = { completion = { completionItem = { snippetSupport = true } } } },
-		-- 	})
-		-- end,
-
-		-- ["pyright"] = function()
-		-- 	set_lspconfig("pyright", {
-		-- 		settings = {
-		-- 			python = {
-		-- 				analysis = {
-		-- 					autoSearchPaths = true,
-		-- 					-- diagnosticMode = "workspace", -- options: "workspace" | "openFilesOnly"
-		-- 					useLibraryCodeForTypes = true,
-		-- 				},
-		-- 			},
-		-- 		},
-		-- 	})
-		-- end,
-	}
-
-	return server_config
-end
+	-- ["pyright"] = {
+	-- 	settings = {
+	-- 		python = {
+	-- 			analysis = {
+	-- 				autoSearchPaths = true,
+	-- 				-- diagnosticMode = "workspace", -- options: "workspace" | "openFilesOnly"
+	-- 				useLibraryCodeForTypes = true,
+	-- 			},
+	-- 		},
+	-- 	},
+	-- },
+}
 
 return M

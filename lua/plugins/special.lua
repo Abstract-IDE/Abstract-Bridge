@@ -18,19 +18,16 @@ local spec = {
 -- 	"folke/tokyonight.nvim",
 -- 	opts = {},
 -- }
--- spec = vim.tbl_extend("force", spec, your_colorscheme)
-
+-- spec = vim.tbl_extend("keep", spec, your_colorscheme)
 local abstract_cs = require("abstract.plugins.abstract-cs")
-spec = vim.tbl_extend("force", spec, abstract_cs)
+spec = vim.tbl_extend("keep", spec, abstract_cs)
 
 local abstract_line = require("abstract.plugins.abstract-line")
 local dropbar = require("abstract.plugins.dropbar")
--- local abstract_winbar = require("abstract.plugins.abstract-winbar")
 
 spec.dependencies = vim.list_extend(spec.dependencies, {
 	abstract_line,
 	dropbar,
-	-- abstract_winbar,
 	-- {
 	-- 	"someother/plugin",
 	-- },
@@ -39,8 +36,7 @@ spec.dependencies = vim.list_extend(spec.dependencies, {
 spec.config = function()
 	abstract_cs.setup({}) -- Color scheme
 	abstract_line.setup() -- Status line
-	dropbar.setup() -- Winbar
-	-- abstract_winbar.setup({})
+	dropbar.setup()    -- Winbar
 end
 
 return spec
