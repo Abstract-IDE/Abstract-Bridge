@@ -36,7 +36,7 @@ spec.dependencies = vim.list_extend(spec.dependencies, {
 spec.config = function()
 	abstract_cs.setup({}) -- Color scheme
 	abstract_line.setup() -- Status line
-	dropbar.setup()    -- Winbar
+	dropbar.setup().apply(dropbar.setup().config) -- Winbar
 end
 
 return spec
